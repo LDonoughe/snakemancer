@@ -1,3 +1,5 @@
+from random import uniform
+
 print (
 '''
  __             _                                            
@@ -29,7 +31,8 @@ class Mission:
 
   def attempt(self, snake: Snake):
     skill = max(100 - snake.size, 0)
-    return 'success' if skill > self.difficulty else 'failure'
+    uncertainty = uniform(-20,20)
+    return 'success' if skill > self.difficulty + uncertainty else 'failure'
 
 
 difficulty = 50
@@ -49,12 +52,10 @@ print(f'Your snake is {print_venom}venomous and {size} meters')
 print('What would you like to name your snake?')
 name = input()
 snake = Snake(name, venomous, size)
-print(f'{name}\'s reference is {snake}')
-
 user.add_snake(snake)
 
 result = mission.attempt(snake)
-print(result)
+print(f'Mission is a {result}')
 
 # print(user.snakes)
 

@@ -12,4 +12,8 @@ install asdf
 
 # TODO
 
-Everything
+Add Tests
+Use Curses
+Add More Missions
+Add Store
+Add more Snake Attributes
