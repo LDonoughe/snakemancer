@@ -8,11 +8,34 @@ _\ \ | | | (_| |   <  __/ | | | | | (_| | | | | (_|  __/ |
 '''
 )
 
+class Snakemancer:
+  def __init__(self, snakes):
+    self.snakes = snakes
+
+  def add_snake(self, snake):
+      self.snakes = self.snakes.append(snake)
+
+user = Snakemancer([])
+
 class Snake:
   def __init__(self, name: str, venomous: bool, size: int):
         self.name = name
         self.venomous = venomous
         self.size = size
+
+class Mission:
+  def __init__(self, difficulty: int):
+    self.difficulty = difficulty
+
+  def attempt(self, snake: Snake):
+    skill = max(100 - snake.size, 0)
+    return 'success' if skill > self.difficulty else 'failure'
+
+
+difficulty = 50
+mission = Mission(difficulty)
+
+print(f'You must infiltrate the building. It has a difficulty of {mission.difficulty}')
 
 print('Assemble Your Snake')
 print('Is it venomous?')
@@ -28,15 +51,22 @@ name = input()
 snake = Snake(name, venomous, size)
 print(f'{name}\'s reference is {snake}')
 
+user.add_snake(snake)
+
+result = mission.attempt(snake)
+print(result)
+
+# print(user.snakes)
+
+
+
+
+
 
 
 class Store:
   pass
 
 
-
-class Snakemancer:
-  pass
                                                              
-class Mission:
-  pass                                                        
+                                                    
