@@ -31,14 +31,9 @@ class Mission:
 
   def attempt(self, snake: Snake):
     skill = max(100 - snake.size, 0)
-    uncertainty = uniform(-20,20)
-    return 'success' if skill > self.difficulty + uncertainty else 'failure'
+    luck = uniform(-20,20)
+    return 'success' if skill > (self.difficulty + luck) else 'failure'
 
-
-difficulty = 50
-mission = Mission(difficulty)
-
-print(f'You must infiltrate the building. It has a difficulty of {mission.difficulty}')
 
 print('Assemble Your Snake')
 print('Is it venomous?')
@@ -54,8 +49,13 @@ name = input()
 snake = Snake(name, venomous, size)
 user.add_snake(snake)
 
-result = mission.attempt(snake)
-print(f'Mission is a {result}')
+difficulty = 0
+while difficulty < 101:
+  mission = Mission(difficulty)
+  print(f'You must infiltrate the building. It has a difficulty of {mission.difficulty}')
+  result = mission.attempt(snake)
+  print(f'Mission is a {result}')
+  difficulty += 10
 
 # print(user.snakes)
 
