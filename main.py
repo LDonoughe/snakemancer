@@ -43,8 +43,7 @@ print('Is it venomous?')
 venom = input()
 print('How big is it (in centimeters)?')
 size = int(input())
-# Probably should replace with just checking the first letter
-venomous = venom.lower() in ['true', 'tru', 'truuu', '1', 't', 'y', 'yes', 'yeah', 'yeah buddy', 'fa sho', 'yup']
+venomous = venom[0].lower() in ['t','y']
 print_venom = '' if venomous else 'not '
 print(f'Your snake is {print_venom}venomous and {size} centimeters')
 print('What would you like to name your snake?')
@@ -65,7 +64,6 @@ while (difficulty < 101 and failure != True):
 
 if failure:
   print('Your snake failed the mission, try again later with a better snake')
-# print(user.snakes)
 
                                                              
                                                     
